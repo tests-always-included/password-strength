@@ -1,0 +1,42 @@
+{
+    "name": "password-strength",
+    "version": "0.0.1",
+    "description": "Check password strength",
+    "author": "Christopher Tetreault",
+    "homepage": "https://github.com/AbsentSemicolon/password-strength",
+    "bugs": {
+        "url": "https://github.com/AbsentSemicolon/password-strength/issues"
+    },
+    "contributors": [
+        "Tyler Akins <fidian@rumkin.com> (http://rumkin.com)",
+        "Christopher Tetreault"
+    ],
+    "main": "lib/password-strength.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AbsentSemicolon/password-strength.git"
+    },
+    "keywords": [
+        "javascript",
+        "password",
+        "strength",
+        "validation"
+    ],
+    "devDependencies": {
+        "fid-umd": "*",
+        "grunt": "~0.4.1",
+        "grunt-benchmark": "*",
+        "grunt-cli": "*",
+        "grunt-contrib-connect": "*",
+        "grunt-jasmine-node": "*",
+        "grunt-jslint": "*"
+    },
+    "license": "MIT",
+    "scripts": {
+        "jasmine": "grunt jasmine_node",
+        "jslint": "grunt jslint",
+        "server": "grunt connect",
+        "test": "grunt test",
+        "umd": "fid-umd lib/*.js"
+    }
+}
