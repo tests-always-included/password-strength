@@ -117,7 +117,7 @@
                 other: ""
             });
         });
-        it("supports unicode characters", function () {
+        it("supports Unicode characters", function () {
             var airplane, star;
 
             airplane = String.fromCharCode(9992);
@@ -125,6 +125,20 @@
             expect(passwordStrength.charsetGroups(star + "fdfdfd" + airplane)).toEqual({
                 number: false,
                 lower: true,
+                upper: false,
+                punctuation: false,
+                symbol: false,
+                other: star + airplane
+            });
+        });
+        it("deduplicates Unicode characters", function () {
+            var airplane, star;
+
+            airplane = String.fromCharCode(9992);
+            star = String.fromCharCode(9728);
+            expect(passwordStrength.charsetGroups(star + star + airplane + star + airplane)).toEqual({
+                number: false,
+                lower: false,
                 upper: false,
                 punctuation: false,
                 symbol: false,
