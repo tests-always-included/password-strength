@@ -38,7 +38,7 @@
 
 <p><a href="https://travis-ci.org/tests-always-included/password-strength"><img src="https://travis-ci.org/tests-always-included/password-strength.svg?branch=master" alt="Build Status"></a></p>
 
-<p>Password Strength is a library that calculates the relative strength of a password.  This is accomplished by using several techniques.  Primarily this relies on letter trigraphs, which check each set of 3 characters in a given password.  More information on the trigraph calculations <a href="data/README.md">is available</a>.  This also calculates the entropy bits based on Claude Shannon's technique on determining the number of bits required to represent a set of characters and multiplying it by the length of the password.  There is also a check to see if a password is contained in a list of common passwords.</p>
+<p>Password Strength is a library that calculates the relative strength of a password.  This is accomplished by using several techniques.  Primarily this relies on letter trigraphs, which check each set of 3 characters in a given password.  More information on the trigraph calculations <a href="https://github.com/tests-always-included/password-strength/blob/master/data/README.md">is available</a>.  This also calculates the entropy bits based on Claude Shannon's technique on determining the number of bits required to represent a set of characters and multiplying it by the length of the password.  There is also a check to see if a password is contained in a list of common passwords.</p>
 
 <h2>
 <a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
@@ -84,7 +84,7 @@
 
 <p>The strength code is based on the trigraph entropy bits when they are available and will fall back to the Shannon entropy bits.  It's one of five values:  <code>VERY_WEAK</code>, <code>WEAK</code>, <code>REASONABLE</code>, <code>STRONG</code>, and <code>VERY_STRONG</code>.</p>
 
-<p>Trigraph entropy bits is discussed more <a href="data/README.md">here</a>.</p>
+<p>Trigraph entropy bits is discussed more <a href="https://github.com/tests-always-included/password-strength/blob/master/data/README.md">here</a>.</p>
 
 <p>The charsets is mostly an object that has boolean values, except the <code>other</code> property.  That one is a catch-all string of the letters that were not caught and tallied into another one of the charset lists.  The list of characters in <code>other</code> is deduplicated.</p>
 
