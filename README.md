@@ -5,6 +5,8 @@ Password Strength Tester
 
 Password Strength is a library that calculates the relative strength of a password.  This is accomplished by using several techniques.  Primarily this relies on letter trigraphs, which check each set of 3 characters in a given password.  More information on the trigraph calculations [is available](data/README.md).  This also calculates the entropy bits based on Claude Shannon's technique on determining the number of bits required to represent a set of characters and multiplying it by the length of the password.  There is also a check to see if a password is contained in a list of common passwords.
 
+There is a wonderful [demo page](http://tests-always-included.github.io/password-strength) where you can test out the technology yourself.
+
 
 Usage
 -----
@@ -48,7 +50,7 @@ Next you will want to instantiate the modules and make some AJAX calls to fetch 
     $(function () {
         // Create the instance that can be used immediately for strength tests
         window.passwordStrength = new PasswordStrength();
-        
+
         // Add additional files that improve the results
         $.getJSON("path/to/data/common-passwords.json", function (data) {
             window.passwordStrength.addCommonPasswords(data);
@@ -57,17 +59,17 @@ Next you will want to instantiate the modules and make some AJAX calls to fetch 
             window.passwordStrength.addCommonPasswords(data);
         });
     });
-    
+
 Later, to calculate the strength of a password you would use something like this:
 
     if (window.passwordStrength) {
         strength = window.passwordStrength.check("abcd1234");
-        
+
         if (strength.strengthCode.indexOf('WEAK') >= 0) {
             alert("Your password is too weak.");
         }
     }
-    
+
 
 ### Node.js
 
@@ -76,12 +78,12 @@ First run `npm install --save tai-password-strength` and then your code would lo
     var taiPasswordStrength = require("tai-password-strength")
     var strengthTester = new taiPasswordStrength.PasswordStrength();
     var results = strengthTester.check("abcd1234");
-    
+
     // Add in extra files for additional checks and better results
     strengthTester.addCommonPasswords(taiPasswordStrength.commonPasswords);
     strengthTester.addTrigraphMap(taiPasswordStrength.trigraphs);
     var betterResults = strengthTester.check("abcd1234");
-    
+
     if (betterResults.strengthCode.indexOf('WEAK') >= 0) {
         throw new Error("Your password is too weak");
     }
