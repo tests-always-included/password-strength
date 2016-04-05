@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
     <title>Password Strength Tester</title>
+    <script type="text/javascript" src="../lib/password-strength.js"></script>
+    <script type="text/javascript" src="demo.js"></script>
   </head>
 
   <body>
@@ -37,6 +39,18 @@
 <p><a href="https://travis-ci.org/tests-always-included/password-strength"><img src="https://travis-ci.org/tests-always-included/password-strength.svg?branch=master" alt="Build Status"></a></p>
 
 <p>Password Strength is a library that calculates the relative strength of a password.  This is accomplished by using several techniques.  Primarily this relies on letter trigraphs, which check each set of 3 characters in a given password.  More information on the trigraph calculations <a href="data/README.md">is available</a>.  This also calculates the entropy bits based on Claude Shannon's technique on determining the number of bits required to represent a set of characters and multiplying it by the length of the password.  There is also a check to see if a password is contained in a list of common passwords.</p>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+
+<p id="commonXhttp">Loading common words ...</p>
+<p id="frequencyXhttp">Loading frequency table ...</p>
+<div id="PasswordInfo">
+    <form>
+        <input id="PasswordField" type="password" autocomplete="off" autofocus="autofocus" />
+    </form>
+    <div id="PasswordStatistics"></div>
+</div>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
