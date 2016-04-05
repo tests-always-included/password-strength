@@ -1,4 +1,4 @@
-/*global beforeEach, describe, expect, it, require, spyOn, ddescribe, iit */
+/*global beforeEach, describe, expect, it, require */
 
 (function () {
     "use strict";
@@ -92,7 +92,7 @@
                 number: true,
                 punctuation: true,
                 symbol: true
-            })).toBe(41);
+            })).toBe(42);
         });
     });
 
@@ -297,7 +297,7 @@
             airplane = String.fromCharCode(9992); // ✈
             star = String.fromCharCode(9728); // ☀
 
-            expect(passwordStrength.otherChars('A ' + star + ' on an ' + airplane)).toBe(star + airplane);
+            expect(passwordStrength.otherChars("A " + star + " on an " + airplane)).toBe(star + airplane);
         });
     });
 
