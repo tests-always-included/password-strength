@@ -12,14 +12,14 @@ window.onload = function () {
         if (ps) {
             Object.keys(ps).forEach(function (key) {
                 if (ps[key] && typeof ps[key] === "object") {
-                    stats += "<p>" + key + ": ";
+                    stats += key + ": ";
                     Object.keys(ps[key]).forEach(function (innerKey) {
                         stats += "<br />&nbsp;&nbsp;" + innerKey + ": " + ps[key][innerKey];
                     });
-                    stats += "</p>";
                 } else {
-                    stats += "<p>" + key + ": " + ps[key] + "</p>";
+                    stats += key + ": " + ps[key];
                 }
+                stats += "<br />";
             });
         }
 
