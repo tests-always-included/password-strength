@@ -1,11 +1,11 @@
 {
     "name": "tai-password-strength",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Check password strength",
     "author": "Christopher Tetreault",
-    "homepage": "https://github.com/AbsentSemicolon/password-strength",
+    "homepage": "https://github.com/tests-always-included/password-strength",
     "bugs": {
-        "url": "https://github.com/AbsentSemicolon/password-strength/issues"
+        "url": "https://github.com/tests-always-included/password-strength/issues"
     },
     "contributors": [
         "Tyler Akins <fidian@rumkin.com> (http://rumkin.com)",
@@ -14,7 +14,7 @@
     "main": "lib/node.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/AbsentSemicolon/password-strength.git"
+        "url": "https://github.com/tests-always-included/password-strength.git"
     },
     "keywords": [
         "javascript",
