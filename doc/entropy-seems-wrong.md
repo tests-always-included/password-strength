@@ -3,7 +3,7 @@ Entropy Score Seems Wrong
 
 When creating a password, your goal is to make it very difficult to guess or hack.  Sometimes you think your password is super secure because it is long.  Other times the password was randomly generated.  Maybe you are here because the entropy value seemed too high when you typed in "aaaaaaaa" or you were wondering why that's not the same entropy as "zzzzzzzz".
 
-Regardless the reason, let's dive a little into the math that is surrounding the entropy scores.
+Regardless the reason, let's dive a little into the math surrounding the entropy scores.
 
 
 Calculation of Entropy
@@ -20,12 +20,12 @@ Assuming that you roll dice or have another truly random method for picking lett
 
 This includes passwords like "thimbles" and "stupider", but more on that weakness later.
 
-To compute the number of bits of entropy, one just tries to figure out how many possibilities there are (208 billion) and then figures out how big of a binary number it would take to represent it.  To do that you use `log(26^8) / log(2)` becase normally the `log()` function provides results in base 10 and we require them in base 2.  This is also known as `log2(26^8)`, and the result is about 37.6 bits of entropy.
+To compute the number of bits of entropy, one just tries to figure out how many possibilities there are (208 billion) and then figures out how big of a binary number it would take to represent it.  To do that you use `log(26^8) / log(2)` because normally the `log()` function provides results in base 10 and we require them in base 2.  This is also known as `log2(26^8)`, and the result is about 37.6 bits of entropy.
 
 
 ### Character Set Sizes
 
-This math is possible because we know how many letters are in our alphabet.  To include uppercase letters and lowercase letters the set grows to `26 + 26 = 52` options for each letter in the password.  If we were dealing with an unknown language or if we didn't want to group the letters into sets of characters then we have a harder time.
+This math is possible because we know how many letters are in our alphabet.  To include uppercase letters and lowercase letters the set grows to `26 + 26 = 52` options for each letter in the password.  If we were dealing with an unknown language or if we didn't want to group the letters into sets of characters then we would have a harder time.
 
 There are a couple options that the password strength software has taken to combat this problem.  The first is using a technique from Claude Shannon, where the letters in the password itself are used as the character set size.  Using the password of "aaaabbbb" would indicate there's only 2 options per character and we'd have `2^8` possibilities.  This works way better for longer passwords that have more varied characters.
 
@@ -34,7 +34,7 @@ The other technique is to lump letters together into groups.  When a letter is e
 
 ### Character Prediction
 
-When checking passwords, one should be encouraged (though not required) to use randomly generated passwords that do not look like words.  If you typically use words, those passwords should be weaker.  To accomplish this, a large amount of text was analyzed for letter trigraphs, which is essentially saying "when given two letters, what's the chance you can predict the third letter?"
+When checking passwords, one should be encouraged (though not required) to use randomly generated passwords that do not look like words.  If you typically use words, those passwords should be weaker.  To accomplish this, a large amount of text was analyzed for letter trigraphs, which is essentially saying, "When given two letters, what's the chance you can predict the third letter?"
 
 Let's take a look at the sample password "thimbles".  If we analyze the first two letters, we can predict what the next letter will be.  There's about a 67% chance that "e" will follow "th".  There's about a 10% chance it could be an "a" and 9% chance a word ends with "th".  Our letter is "i", and there's only about a 6.5% chance that "thi" will be the outcome.  So, 93.5% of the time we will be wrong.
 
@@ -49,7 +49,7 @@ Really, the password strength meter does not measure the technique used to gener
 
 ### Common Passwords
 
-People collect lists of passwords that have been successful on other sites.  This will be the first attack that will be performed whenever someone is trying to hack or crack passwords.
+People collect lists of passwords that have been successful on other sites.  This will be the first attack performed whenever someone is trying to hack or crack passwords.
 
 Do not reuse passwords.  Use a password manager that was reviewed for security holes and generate unique, long, random passwords everywhere.
 
@@ -74,7 +74,7 @@ It is also an option to pass entries through filters that apply other alteration
 
 A bit of knowledge goes a long way.  Once I worked for a company that required passwords that were exactly 8 characters.  You must have at least one capital letter, one lowercase letter, one number and one symbol.  At first blush you may think that you have a possible 95 characters for each position and we need a total of 8 characters, so 95^8 possibilities (6.6E15).
 
-Remember that "a bit of knowledge goes a long way" from earlier?  Some more information you've obtained is that the list of symbols that are allowed is either `.` or `$`.  Only those two are permitted.  Not even spaces are allowed.  So your character set size drops to 64, and the total is 64^8 (2.8E14).  We've reduced the total number of passwords down to about a 1/23 of what it was previously.
+Remember, "a bit of knowledge goes a long way," from earlier?  Some more information you've obtained is that the list of symbols that are allowed is either `.` or `$`.  Only those two are permitted.  Not even spaces are allowed.  So your character set size drops to 64, and the total is 64^8 (2.8E14).  We've reduced the total number of passwords down to about a 1/23 of what it was previously.
 
 We can reduce this vast number of passwords further.  The real number of allowed passwords is significantly smaller because not all of these will have an uppercase, lowercase, or a number.  In fact, approximately 85% of the passwords are invalid.  That brings our number down to 4.2E13.  Still a hefty number, certainly, but on the verge of possibility.  A person who has access to a hefty number of computers, such as a college computer lab, could load distributed password hashing clients and brute-force the entire keyspace.
 
@@ -100,7 +100,7 @@ The password strength tester avoids some of the debate by focusing entirely on w
 * We prefer to not use the Shannon entropy score, which would rank "aaaaaaaa" as having zero entropy.  Instead, we try to take the approach of how difficult the password would be to find from a hacker's point of view.
 * The scoring method works better when passphrases are used because it is significantly easier to find "2legit2quit" than "Smiles is the longest word; there's a mile between the s's."
 
-This tool does try to focus on the attacker's side.  Passwords that are easier to guess will get lower scores.  It does not matter how you generated a password.  What really matters is how easy it is for me to find the password.  For instance, let's assume your randomly generated password made the word "pictures".  That's an option when you use only lowercase and it's only got a 1 out of 26^8 chance of showing up, but it *can* show up.  If your random password generator happened to make something that was a word or word-like, then it would be easier to crack, and my scores are only estimates for how hard it would be to crack.  You would not accept this because it looks like a word.  Regenerating a password (again, assuming 8 lowercase letters) you come up with "annhqann" and assume that's good.  Admittedly, it's unlikely that a "q" is followed by "a", so you use it.
+This tool does try to focus on the attacker's side.  Passwords that are easier to guess will get lower scores.  It does not matter how you generated a password.  What really matters is how easy it is for hackers to find the password.  For instance, let's assume your randomly generated password made the word "pictures".  That's an option when you use only lowercase and it's only got a 1 out of 26^8 chance of showing up, but it *can* show up.  If your random password generator happened to make something that was a word or word-like then it would be easier to crack.  The software's scores are only estimates for how much work needs to be invested to obtain the password.  You would not accept this because it looks like a word.  Regenerating a password (again, assuming 8 lowercase letters) you come up with "annhqann" and assume that's good.  Admittedly, it's unlikely that a "q" is followed by "a", so you use it.
 
 Let's now attempt to crack your password.  When cracking a lot, I start with a known password list and move on to wordlists.  I'd get plenty and probably stop there.  However, if I really wanted to get specific password, I would start using password mutation routines on the dictionary entries.  Mutation routines such as taking two arbitrary words and concatenating them together, adding numbers at the end, introducing misspellings, etc.  After that I would use a weighted brute force algorithm that would eventually generate all possibilities but would try them in a preferential order.  This would find passwords based on other languages and ones that happened to look close enough to other languages.  Eventually I would get to the truly random passwords where the letter frequency charts don't cover the possibilities.
 
