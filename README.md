@@ -1,11 +1,14 @@
 Password Strength Tester
 ========================
 
-[![Build Status](https://travis-ci.org/tests-always-included/password-strength.svg?branch=master)](https://travis-ci.org/tests-always-included/password-strength)
-
 Password Strength is a library that calculates the relative strength of a password.  This is accomplished by using several techniques.  Primarily this relies on letter trigraphs, which check each set of 3 characters in a given password.  More information on the trigraph calculations [is available](data/README.md).  This also calculates the entropy bits based on Claude Shannon's technique on determining the number of bits required to represent a set of characters and multiplying it by the length of the password.  There is also a check to see if a password is contained in a list of common passwords.
 
 There is a wonderful [demo page](http://tests-always-included.github.io/password-strength) where you can test out the technology yourself.
+
+[![npm version][npm-badge]][npm-link]
+[![Build Status][travis-badge]][travis-link]
+[![Dependencies][dependencies-badge]][dependencies-link]
+[![Dev Dependencies][devdependencies-badge]][devdependencies-link]
 
 
 Usage
@@ -89,4 +92,12 @@ First run `npm install --save tai-password-strength` and then your code would lo
     }
 
 
+[dependencies-badge]: https://david-dm.org/tests-always-included/password-strength.svg
+[dependencies-link]: https://david-dm.org/tests-always-included/password-strength
+[devdependencies-badge]: https://david-dm.org/tests-always-included/password-strength/dev-status.svg
+[devdependencies-link]: https://david-dm.org/tests-always-included/password-strength#info=devDependencies
 [fid-umd]: https://github.com/fidian/fid-umd
+[npm-badge]: https://badge.fury.io/js/password-strength.svg
+[npm-link]: https://npmjs.org/package/password-strength
+[travis-badge]: https://secure.travis-ci.org/tests-always-included/password-strength.svg
+[travis-link]: http://travis-ci.org/tests-always-included/password-strength
