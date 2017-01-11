@@ -27,7 +27,7 @@
     ],
     "devDependencies": {
         "fid-umd": "*",
-        "grunt": "~0.4.1",
+        "grunt": "~1.0.1",
         "grunt-benchmark": "*",
         "grunt-cli": "*",
         "grunt-contrib-connect": "*",
