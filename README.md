@@ -92,12 +92,12 @@ First run `npm install --save tai-password-strength` and then your code would lo
     }
 
 
-[dependencies-badge]: https://david-dm.org/tests-always-included/password-strength.svg
+[dependencies-badge]: https://img.shields.io/david/tests-always-included/password-strength.svg
 [dependencies-link]: https://david-dm.org/tests-always-included/password-strength
-[devdependencies-badge]: https://david-dm.org/tests-always-included/password-strength/dev-status.svg
+[devdependencies-badge]: https://img.shields.io/david/dev/tests-always-included/password-strength.svg
 [devdependencies-link]: https://david-dm.org/tests-always-included/password-strength#info=devDependencies
 [fid-umd]: https://github.com/fidian/fid-umd
-[npm-badge]: https://badge.fury.io/js/password-strength.svg
+[npm-badge]: https://img.shields.io/npm/v/password-strength.svg
 [npm-link]: https://npmjs.org/package/password-strength
-[travis-badge]: https://secure.travis-ci.org/tests-always-included/password-strength.svg
+[travis-badge]: https://img.shields.io/travis/tests-always-included/password-strength/master.svg
 [travis-link]: http://travis-ci.org/tests-always-included/password-strength
