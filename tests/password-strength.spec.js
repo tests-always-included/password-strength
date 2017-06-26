@@ -159,10 +159,11 @@
             });
         });
 
-        it("returns all calculated status properties", function () {
+        it("returns all calculated status properties for quote", function () {
             expect(passwordStrength.check("quote")).toEqual({
                 charsetSize: 26,
                 commonPassword: true,
+                nistEntropyBits: 12,
                 passwordLength: 5,
                 shannonEntropyBits: 11.60964047443681,
                 strengthCode: "VERY_WEAK",
@@ -178,10 +179,11 @@
             });
         });
 
-        it("returns all calculated status properties", function () {
+        it("returns all calculated status properties for Quot", function () {
             expect(passwordStrength.check("Quot")).toEqual({
                 charsetSize: 52,
                 commonPassword: false,
+                nistEntropyBits: 10,
                 passwordLength: 4,
                 shannonEntropyBits: 8,
                 strengthCode: "VERY_WEAK",

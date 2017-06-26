@@ -19,6 +19,7 @@ The Password Strength library is wrapped with [fid-umd], and is usable in a vari
     {
         charsetSize: 36,  // Explained better below
         commonPassword: true,  // If true, don't use this password!
+        nistEntropyBits: 18, // NIST 800-63, probably not a good measurement
         passwordLength: 8,  // Same as string.length
         shannonEntropyBits: 24,  // Claude Shannon's method
         strengthCode: 'WEAK',  // Our ranking of the password's strength
@@ -35,7 +36,7 @@ The Password Strength library is wrapped with [fid-umd], and is usable in a vari
 
 The charset size is the sum of the lengths of the different charsets that the password uses.  The higher this number, the harder it is to brute force attack.  That's precisely why password policies often say "must contain one lowercase letter, one uppercase letter, one number and a symbol".
 
-The strength code is based on the trigraph entropy bits when they are available and will fall back to the Shannon entropy bits.  It's one of five values:  `VERY_WEAK`, `WEAK`, `REASONABLE`, `STRONG`, and `VERY_STRONG`.
+The strength code is based on the trigraph entropy bits when they are available and will fall back to the Shannon entropy bits.  It's one of five values:  `VERY_WEAK`, `WEAK`, `REASONABLE`, `STRONG`, and `VERY_STRONG`. The NIST scores are based on NIST Special Publication 800-63, but this is considered to not provide an accurate measurement of entropy and is included for completeness and comparison to the other algorithms.
 
 Trigraph entropy bits is discussed more [here](data/README.md).
 
