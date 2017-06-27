@@ -159,10 +159,11 @@
             });
         });
 
-        it("returns all calculated status properties", function () {
+        it("returns all calculated status properties for quote", function () {
             expect(passwordStrength.check("quote")).toEqual({
                 charsetSize: 26,
                 commonPassword: true,
+                nistEntropyBits: 12,
                 passwordLength: 5,
                 shannonEntropyBits: 11.60964047443681,
                 strengthCode: "VERY_WEAK",
@@ -178,10 +179,11 @@
             });
         });
 
-        it("returns all calculated status properties", function () {
+        it("returns all calculated status properties for Quot", function () {
             expect(passwordStrength.check("Quot")).toEqual({
                 charsetSize: 52,
                 commonPassword: false,
+                nistEntropyBits: 10,
                 passwordLength: 4,
                 shannonEntropyBits: 8,
                 strengthCode: "VERY_WEAK",
@@ -283,6 +285,28 @@
                 trigraphEntropyBits: null,
                 shannonEntropyBits: 95
             })).toBe("VERY_STRONG");
+        });
+    });
+
+
+    describe("nistScore()", function () {
+        it("scores an empty string", function () {
+            expect(passwordStrength.nistScore("")).toBe(0);
+        });
+        it("scores a single character", function () {
+            expect(passwordStrength.nistScore(".")).toBe(4);
+        });
+        it("scores a second character", function () {
+            expect(passwordStrength.nistScore(".!")).toBe(6);
+        });
+        it("applies a bonus", function () {
+            expect(passwordStrength.nistScore(".A")).toBe(12);
+        });
+        it("scores a ninth character", function () {
+            expect(passwordStrength.nistScore("123456789")).toBe(19.5);
+        });
+        it("scores a long passphrase", function () {
+            expect(passwordStrength.nistScore("123456789012345678901")).toBe(37);
         });
     });
 
