@@ -289,7 +289,7 @@
     });
 
 
-    describe("shannonScore()", function () {
+    describe("nistScore()", function () {
         it("scores an empty string", function () {
             expect(passwordStrength.nistScore("")).toBe(0);
         });
