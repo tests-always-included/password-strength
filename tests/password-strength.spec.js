@@ -289,6 +289,28 @@
     });
 
 
+    describe("shannonScore()", function () {
+        it("scores an empty string", function () {
+            expect(passwordStrength.nistScore("")).toBe(0);
+        });
+        it("scores a single character", function () {
+            expect(passwordStrength.nistScore(".")).toBe(4);
+        });
+        it("scores a second character", function () {
+            expect(passwordStrength.nistScore(".!")).toBe(6);
+        });
+        it("applies a bonus", function () {
+            expect(passwordStrength.nistScore(".A")).toBe(12);
+        });
+        it("scores a ninth character", function () {
+            expect(passwordStrength.nistScore("123456789")).toBe(19.5);
+        });
+        it("scores a long passphrase", function () {
+            expect(passwordStrength.nistScore("123456789012345678901")).toBe(37);
+        });
+    });
+
+
     describe("otherChars()", function () {
         it("returns empty string when all allphanumeric", function () {
             expect(passwordStrength.otherChars("Mary1")).toBe("");
