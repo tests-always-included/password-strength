@@ -2,6 +2,14 @@ CHANGELOG
 =========
 
 
+1.1.1 - 2017-08-24
+------------------
+
+* Fixed example in `README.md`.
+* Switched from grunt, jasmine, and jslint to running jasmine with eslint.
+* No functional changes.
+
+
 1.1.0 - 2017-06-27
 ------------------
 
