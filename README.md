@@ -60,7 +60,7 @@ Next you will want to instantiate the modules and make some AJAX calls to fetch 
             window.passwordStrength.addCommonPasswords(data);
         });
         $.getJSON("path/to/data/trigraphs.json", function (data) {
-            window.passwordStrength.addCommonPasswords(data);
+            window.passwordStrength.addTrigraphMap(data);
         });
     });
 
