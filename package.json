@@ -1,6 +1,6 @@
 {
     "name": "tai-password-strength",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Check password strength",
     "author": "Christopher Tetreault",
     "homepage": "https://github.com/tests-always-included/password-strength",
@@ -26,21 +26,17 @@
         "trigraph"
     ],
     "devDependencies": {
+        "eslint": "4.5.0",
+        "eslint-plugin-jasmine": "2.8.4",
         "fid-umd": "*",
-        "grunt": "~1.0.1",
-        "grunt-benchmark": "*",
-        "grunt-cli": "*",
-        "grunt-contrib-connect": "*",
-        "grunt-jasmine-node": "*",
-        "grunt-jslint": "*"
+        "jasmine": "2.7.0"
     },
     "license": "MIT",
     "scripts": {
         "clean": "rm -rf node_modules package-lock.json",
-        "jasmine": "grunt jasmine_node",
-        "jslint": "grunt jslint",
-        "server": "grunt connect",
-        "test": "grunt test",
+        "jasmine": "jasmine",
+        "lint": "eslint .",
+        "test": "jasmine && eslint .",
         "umd": "fid-umd lib/*.js"
     }
 }
