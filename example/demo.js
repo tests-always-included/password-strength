@@ -1,8 +1,11 @@
+"use strict";
 window.onload = function () {
-    "use strict";
+    var commonXhttp, frequencyXhttp, passwordField, passwordStatistics, passwordStrength;
 
-    var commonXhttp, frequencyXhttp, passwordField, passwordInfo, passwordStatistics, passwordStrength;
-
+    /**
+     * When the user updates the password, recalculate stats and show them
+     * again.
+     */
     function recalc() {
         var ps, stats;
 
@@ -26,14 +29,19 @@ window.onload = function () {
         passwordStatistics.innerHTML = stats;
     }
 
+    /**
+     * Detect when a file gets loaded.
+     *
+     * @param {XMLHttpRequest} xhr
+     * @param {string} passwordStrengthMethod Method name to call
+     * @param {string} elementId What to update in the DOM
+     */
     function setReadyStateChange(xhr, passwordStrengthMethod, elementId) {
         xhr.onreadystatechange = function () {
-            var result;
-
-            if (xhr.readyState == 4) {
-                if (xhr.status == 200) {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
                     passwordStrength[passwordStrengthMethod](JSON.parse(xhr.responseText));
-                    document.getElementById(elementId).style.display = 'none';
+                    document.getElementById(elementId).style.display = "none";
                     recalc();
                 } else {
                     document.getElementById(elementId).innerHTML = "Unable to load (" + elementId + "): " + xhr.status;
@@ -42,17 +50,16 @@ window.onload = function () {
         };
     }
 
-    passwordField = document.getElementById('PasswordField');
-    passwordInfo = document.getElementById('PasswordInfo');
-    passwordStatistics = document.getElementById('PasswordStatistics');
+    passwordField = document.getElementById("PasswordField");
+    passwordStatistics = document.getElementById("PasswordStatistics");
 
     commonXhttp = new XMLHttpRequest();
-    setReadyStateChange(commonXhttp, 'addCommonPasswords', 'commonXhttp');
+    setReadyStateChange(commonXhttp, "addCommonPasswords", "commonXhttp");
     commonXhttp.open("GET", "../data/common-passwords.json", true);
     commonXhttp.send();
 
     frequencyXhttp = new XMLHttpRequest();
-    setReadyStateChange(frequencyXhttp, 'addTrigraphMap', 'frequencyXhttp');
+    setReadyStateChange(frequencyXhttp, "addTrigraphMap", "frequencyXhttp");
     frequencyXhttp.open("GET", "../data/trigraphs.json", true);
     frequencyXhttp.send();
 
