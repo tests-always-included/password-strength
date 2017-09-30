@@ -26,7 +26,7 @@
         "trigraph"
     ],
     "devDependencies": {
-        "eslint": "4.7.2",
+        "eslint": "4.8.0",
         "eslint-plugin-jasmine": "2.8.4",
         "fid-umd": "*",
         "jasmine": "2.8.0"
