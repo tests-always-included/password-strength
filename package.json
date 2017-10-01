@@ -27,7 +27,7 @@
     ],
     "devDependencies": {
         "eslint": "4.8.0",
-        "eslint-plugin-jasmine": "2.8.4",
+        "eslint-plugin-jasmine": "2.8.5",
         "fid-umd": "*",
         "jasmine": "2.8.0"
     },
