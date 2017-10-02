@@ -26,10 +26,10 @@
         "trigraph"
     ],
     "devDependencies": {
-        "eslint": "4.8.0",
-        "eslint-plugin-jasmine": "2.8.4",
+        "eslint": "^4.8.0",
+        "eslint-plugin-jasmine": "^2.8.5",
         "fid-umd": "*",
-        "jasmine": "2.8.0"
+        "jasmine": "^2.8.0"
     },
     "license": "MIT",
     "scripts": {
