@@ -1,8 +1,5 @@
-export interface PassswordStrengthExports {
-    PasswordStrength: PasswordStrength;
-    commonPasswords: string[];
-    trigraphs: PasswordStrengthTrigraphMap;
-}
+export const commonPasswords: string[];
+export const trigraphs: PasswordStrengthTrigraphMap;
 
 export class PasswordStrength {
     charsets: PasswordStrengthGroups;
@@ -44,5 +41,5 @@ export enum PasswordStrengthCode {
     WEAK = "WEAK",
     REASONABLE = "REASONABLE",
     STRONG = "STRONG",
-    VERY_STRONG = "VERY_STRONG"
+    VERY_STRONG = "VERY_STRONG",
 }
