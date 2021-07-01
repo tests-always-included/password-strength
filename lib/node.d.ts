@@ -30,10 +30,12 @@ export interface PasswordStrengthTrigraphMap {
 export interface PasswordStrengthStatistics {
     charsetSize: number;
     commonPassword: boolean;
+    nistEntropyBits: number;
     passwordLength: number;
     shannonEntropyBits: number;
-    strength: PasswordStrengthCode;
+    strengthCode: PasswordStrengthCode;
     trigraphEntropyBits: null | number;
+    charsets: Record<string, string | RegExp>;
 }
 
 export enum PasswordStrengthCode {
